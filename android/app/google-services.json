@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "558993271191",
+    "project_id": "negomer-afff6",
+    "storage_bucket": "negomer-afff6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:558993271191:android:332be74ae7e09b4b5bfcd2",
+        "android_client_info": {
+          "package_name": "com.kp10.apps.negomer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "558993271191-kbn1fkl8gnm9n6ia7ccdkue1via4l8s3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4maru6KpXQVRrjuzdM1OjT3DJ1SXjInY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "558993271191-kbn1fkl8gnm9n6ia7ccdkue1via4l8s3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
