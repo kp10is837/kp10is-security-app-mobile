@@ -4,6 +4,7 @@ import 'package:negomer_mobile/change_password_screen.dart';
 //import 'package:negomer_mobile/agent/AcceuilProfileAgent.dart';
 import 'package:negomer_mobile/connexion.dart';
 import 'package:negomer_mobile/monCodeQR.dart';
+import 'package:negomer_mobile/pointage_screen.dart';
 import 'package:negomer_mobile/scanCode.dart';
 import 'package:negomer_mobile/scanner.dart';
 import 'package:negomer_mobile/services/api_service.dart';
@@ -11,6 +12,8 @@ import 'package:negomer_mobile/utils/preferences.dart';
 import 'package:negomer_mobile/postes_screen.dart';
 import 'package:negomer_mobile/report_screen.dart';
 import 'package:negomer_mobile/utils/utils.dart';
+import 'package:android_alarm_manager/android_alarm_manager.dart';
+import 'package:negomer_mobile/settings_screen.dart';
 
 import 'AcceuilProfile.dart';
 
@@ -198,6 +201,21 @@ class _MenuState extends State<Menu> {
                       },
                     )
                   : Container(),
+              /*typeUser == "Agent" ? Divider() : Container(),
+              typeUser == "Agent"
+                  ? ListTile(
+                leading: Icon(Icons.check),
+                title: Text("POINTAGE", style: GoogleFonts.lato()),
+                onTap: () {
+                  setState(() {
+                    Navigator.push(context, new MaterialPageRoute(
+                        builder: (BuildContext context) {
+                          return new PointageScreen();
+                        }));
+                  });
+                },
+              )
+                  : Container(),*/
               typeUser == "Client" && Utils.empty(user['parent']) ? Divider() : Container(),
               typeUser == "Client" && Utils.empty(user['parent'])
                   ? ListTile(
@@ -246,7 +264,21 @@ class _MenuState extends State<Menu> {
                     );
                   });
                 },
-              ),
+              ),typeUser == "Agent" ? Divider() : Container(),
+              typeUser == "Agent"
+                  ? ListTile(
+                leading: Icon(Icons.settings),
+                title: Text("PARAMETRES", style: GoogleFonts.lato()),
+                onTap: () {
+                  setState(() {
+                    Navigator.push(context, new MaterialPageRoute(
+                        builder: (BuildContext context) {
+                          return new SettingsScreen();
+                        }));
+                  });
+                },
+              )
+                  : Container(),
               Divider(),
               ListTile(
                 leading: Icon(Icons.info),

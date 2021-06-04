@@ -4,15 +4,18 @@ import 'dart:io';
 import 'package:progress_dialog/progress_dialog.dart';
 
 class ApiService{
- /* static final apiHost = 'http://192.168.1.132/tourneur-admin/public/api/v1/';
-  static final imagesHost = 'http://192.168.1.132/tourneur-admin/public/uploads/';*/
+  /*static final apiHost = 'http://192.168.1.132/tourneur-admin/public/api/v1/';*/
+  //static final imagesHost = 'http://192.168.1.132/tourneur-admin/public/uploads/';
   /*static final apiHost = 'http://laravel.mamgabon.com/public/api/v1/';
   static final imagesHost = 'http://laravel.mamgabon.com/public/uploads/';*/
 
-  //static final apiHost = 'http://192.168.42.102/negomer/negomer_sarl/public/api/';
-  static final apiHost = 'https://testapp.negomer-groupe.com/api/';
-  //static final apiHost = 'https://securite.negomer-groupe.com/api/';
   //static final apiHost = 'http://192.168.1.147/negomer/negomer_sarl/public/api/';
+  //static final apiHost = 'http://192.168.1.147/nego/public/api/';
+  //static final apiHost = 'https://testapp.negomer-groupe.com/api/';
+  //static final apiHost = 'https://securite.negomer-groupe.com/api/';
+  static final apiHost = 'https://securite.kp10is.com/api/';
+  //static final apiHost = 'http://192.168.1.69/nego/public/api/';
+  //static final apiHost = 'http://192.168.1.147/nego/public/api/';
   static final imagesHost = 'http://192.168.1.147/biziye/public/uploads/';
 
   static String postes = "client/postes";
@@ -26,6 +29,14 @@ class ApiService{
   static String saveDevice= "user/save-device";
   static String report= "report";
   static String changePassword= "auth/change-password";
+  static String initPointing= "init-pointage";
+  static String pointing= "pointage";
+  static String toDayInterventions= "today-interventions";
+  static String autoControle= "auto-controle";
+  static String canPointe= "can-pointe";
+  static String setParam= "set-param";
+  static String getUserInfo= "get-user";
+  static String checkPointingState= "check-pointing-state";
 
   /*static final apiHost = 'http://biziye.jmmgroup.fr/api/';
   static final imagesHost = 'http://biziye.jmmgroup.fr/uploads/';

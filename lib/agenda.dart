@@ -80,14 +80,15 @@ class _AgendaState extends State<Agenda> {
                     if (details.targetElement == CalendarElement.appointment) {
                       print("pressed");
                     }
-                    DateTime date = details.date;
+                    DateTime? date = details.date;
                     print(date);
                     dynamic appointments = details.appointments;
                     print(appointments[0].eventName);
                     CalendarElement view = details.targetElement;
                     print(view);
+                    print('sdate ${details.date?.year}-${details.date?.month}-${details.date?.day}');
                     Navigator.push(context, MaterialPageRoute(builder: (context) => AgendaDetail(
-                      date: '${details.date.year}-${details.date.month}-${details.date.day}',
+                      date: '${details.date?.year}-${details.date?.month}-${details.date?.day}',
                     )),);
                   },
                   minDate: DateTime.now(),
@@ -297,27 +298,27 @@ class MeetingDataSource extends CalendarDataSource {
 
   @override
   DateTime getStartTime(int index) {
-    return appointments[index].from;
+    return appointments?[index].from;
   }
 
   @override
   DateTime getEndTime(int index) {
-    return appointments[index].to;
+    return appointments?[index].to;
   }
 
   @override
   String getSubject(int index) {
-    return appointments[index].eventName;
+    return appointments?[index].eventName;
   }
 
   @override
   Color getColor(int index) {
-    return appointments[index].background;
+    return appointments?[index].background;
   }
 
   @override
   bool isAllDay(int index) {
-    return appointments[index].isAllDay;
+    return appointments?[index].isAllDay;
   }
 }
 

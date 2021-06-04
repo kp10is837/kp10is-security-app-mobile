@@ -263,7 +263,7 @@ class _AcceuilP1State extends State<AcceuilP1> {
                                       ),
                                     ),
                                   ),
-                                  Expanded(
+                                  /*Expanded(
                                     child: Container(
                                       width: largeur / 3.5,
                                       child: Card(
@@ -300,7 +300,7 @@ class _AcceuilP1State extends State<AcceuilP1> {
                                       ),
                                     ),
                                     flex: 5,
-                                  ),
+                                  ),*/
                                   Expanded(
                                     child: Container(
                                       width: largeur / 3.5,
@@ -661,7 +661,7 @@ class _AcceuilP1State extends State<AcceuilP1> {
                             itemBuilder: (context, index) {
                               return InkWell(
                                 child: Container(
-                                  width: largeur,
+                                  width: largeur*4/5,
                                   child: InkWell(
                                     onTap: (){
                                       detailIntervention(

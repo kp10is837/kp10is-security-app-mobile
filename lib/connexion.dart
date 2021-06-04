@@ -41,128 +41,130 @@ class _ConnexionState extends State<Connexion> {
     double largeur = MediaQuery.of(context).size.width;
     double hauteur = MediaQuery.of(context).size.height;
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: Container(
-          constraints: BoxConstraints.expand(),
-          //width: double.infinity,
-          //height: hauteur,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/FondConnexion.png"),
-              fit: BoxFit.cover,
-              colorFilter: ColorFilter.linearToSrgbGamma(),
-            ),
-          ),
-          child: Container(
+      //resizeToAvoidBottomInset: false,
+      body: SingleChildScrollView(
+        child: Container(
+            //constraints: BoxConstraints.expand(),
+            //width: double.infinity,
             height: hauteur,
-            padding: EdgeInsets.symmetric(horizontal: largeur / 15),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Form(
-                  key: _keyForm,
-                  child: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/FondConnexion.png"),
+                fit: BoxFit.cover,
+                colorFilter: ColorFilter.linearToSrgbGamma(),
+              ),
+            ),
+            child: Container(
+              height: hauteur,
+              padding: EdgeInsets.symmetric(horizontal: largeur / 15),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Form(
+                    key: _keyForm,
                     child: Container(
-                      //color: Colors.white12.withOpacity(0.1),
-                      padding: EdgeInsets.symmetric(
-                        horizontal: largeur / 10,
-                      ),
-                      child: Column(
-                        children: [
-                          Text(
-                            'CONNEXION',
-                            style: GoogleFonts.lato(
-                              fontSize: 35,
-                              color: Colors.indigo[900],
-                              fontWeight: FontWeight.w900,
+                      child: Container(
+                        //color: Colors.white12.withOpacity(0.1),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: largeur / 10,
+                        ),
+                        child: Column(
+                          children: [
+                            Text(
+                              'CONNEXION',
+                              style: GoogleFonts.lato(
+                                fontSize: 20,
+                                color: Colors.indigo[900],
+                                fontWeight: FontWeight.w900,
+                              ),
+                              textAlign: TextAlign.start,
                             ),
-                            textAlign: TextAlign.start,
-                          ),
-                          Text(
-                            'Bienvenue sur Negomer',
-                            style: GoogleFonts.lato(
-                              fontSize: 15,
-                              color: Colors.indigo[600],
-                              fontWeight: FontWeight.w400,
+                            Text(
+                              'Bienvenue sur Negomer',
+                              style: GoogleFonts.lato(
+                                fontSize: 15,
+                                color: Colors.indigo[600],
+                                fontWeight: FontWeight.w400,
+                              ),
+                              textAlign: TextAlign.start,
                             ),
-                            textAlign: TextAlign.start,
-                          ),
-                          SizedBox(
-                            height: hauteur / 10,
-                          ),
-                          TextFormField(
-                            initialValue:
-                                data != null ? data['identifiant'] : '',
-                            decoration: inputDecoration("Identifiant", largeur),
-                            validator: (val) => val!.isEmpty
-                                ? 'Veuillez entrer votre identifiant'
-                                : null,
-                            onChanged: (val) => this.login = val,
-                          ),
-                          SizedBox(height: hauteur / 45),
-                          TextFormField(
-                            decoration:
-                                inputDecoration("Mot de passe", largeur),
-                            onChanged: (val) => this.password = val,
-                            validator: (val) => val!.length < 6
-                                ? 'Veuillez entrer au moins 6 caractères'
-                                : null,
-                            obscureText: true,
-                          ),
-                          SizedBox(height: hauteur / 20),
-                          RaisedButton(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15),
+                            SizedBox(
+                              height: hauteur / 10,
                             ),
-                            padding: EdgeInsets.all(15),
-                            onPressed: () {
-                              if (_keyForm.currentState!.validate()) {
-                                checkConnection(context);
-                              }
-                            },
-                            child: _isloading
-                                ? Center(
-                                    heightFactor: 0.38,
-                                    child: CircularProgressIndicator(
-                                      backgroundColor: Colors.white,
+                            TextFormField(
+                              initialValue:
+                              data != null ? data['identifiant'] : '',
+                              decoration: inputDecoration("Identifiant", largeur),
+                              validator: (val) => val!.isEmpty
+                                  ? 'Veuillez entrer votre identifiant'
+                                  : null,
+                              onChanged: (val) => this.login = val,
+                            ),
+                            SizedBox(height: hauteur / 45),
+                            TextFormField(
+                              decoration:
+                              inputDecoration("Mot de passe", largeur),
+                              onChanged: (val) => this.password = val,
+                              validator: (val) => val!.length < 6
+                                  ? 'Veuillez entrer au moins 6 caractères'
+                                  : null,
+                              obscureText: true,
+                            ),
+                            SizedBox(height: hauteur / 20),
+                            RaisedButton(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              padding: EdgeInsets.all(15),
+                              onPressed: () {
+                                if (_keyForm.currentState!.validate()) {
+                                  checkConnection(context);
+                                }
+                              },
+                              child: _isloading
+                                  ? Center(
+                                heightFactor: 0.38,
+                                child: CircularProgressIndicator(
+                                  backgroundColor: Colors.white,
+                                ),
+                              )
+                                  : Column(
+                                children: [
+                                  Align(
+                                    alignment: Alignment.center,
+                                    child: Wrap(
+                                      children: [
+                                        Text(
+                                          'Se connecter',
+                                          style: GoogleFonts.lato(
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   )
-                                : Column(
-                                    children: [
-                                      Align(
-                                        alignment: Alignment.center,
-                                        child: Wrap(
-                                          children: [
-                                            Text(
-                                              'Se connecter',
-                                              style: GoogleFonts.lato(
-                                                color: Colors.white,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                            color: Colors.indigo[700],
-                          ),
-                          Text(
-                            this.erreur,
-                            style: GoogleFonts.lato(
-                              color: Colors.red,
+                                ],
+                              ),
+                              color: Colors.indigo[700],
                             ),
-                          ),
-                          SizedBox(
-                            height: hauteur / 15,
-                          ),
-                        ],
+                            Text(
+                              this.erreur,
+                              style: GoogleFonts.lato(
+                                color: Colors.red,
+                              ),
+                            ),
+                            SizedBox(
+                              height: hauteur / 15,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
-            ),
-          )),
+                ],
+              ),
+            )),
+      ),
     );
   }
 

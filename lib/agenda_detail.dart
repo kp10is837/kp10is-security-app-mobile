@@ -10,10 +10,11 @@ import 'package:negomer_mobile/widget/no_data.dart';
 
 class AgendaDetail extends StatefulWidget {
   var date;
-  AgendaDetail({this.date});
+  int selectedIndex = 0;
+  AgendaDetail({this.date, this.selectedIndex = 0});
 
   @override
-  _AgendaDetailState createState() => _AgendaDetailState(date: this.date);
+  _AgendaDetailState createState() => _AgendaDetailState(date: this.date, selectedIndex: this.selectedIndex);
 }
 
 class _AgendaDetailState extends State<AgendaDetail> {
@@ -24,7 +25,7 @@ class _AgendaDetailState extends State<AgendaDetail> {
   int selectedIndex = 0;
   bool loading = true;
   bool loading2 = false;
-  _AgendaDetailState({this.date});
+  _AgendaDetailState({this.date, this.selectedIndex = 0});
 
   @override
   initState() {
@@ -43,10 +44,17 @@ class _AgendaDetailState extends State<AgendaDetail> {
       setState(() {
         interventions = (jsonResp['coming_interventions']);
         dates = (jsonResp['dates']);
+        int i = 0;
+        dates.forEach((element) {
+          if(Utils.formatDateTime(element, 'yyyy-M-d') == date){
+            selectedIndex = i;
+          }
+          i++;
+        });
         print('comingssss $interventions');
         if (interventions.length > 0) {
           setState(() {
-            interventionsToShow = interventions[0]['interventions'];
+            interventionsToShow = interventions[selectedIndex]['interventions'];
           });
         }
         loading = false;

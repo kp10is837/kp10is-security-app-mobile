@@ -1,14 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:negomer_mobile/agent/AcceuilProfileAgent.dart';
 
 class SuccessPage extends StatelessWidget {
   String content;
   var operationType;
   var subscriptionId;
   var param;
+  bool reload;
+  
   SuccessPage(this.content,
-      {this.operationType, this.subscriptionId, this.param});
+      {this.operationType, this.subscriptionId, this.param, this.reload=false});
   @override
   Widget build(BuildContext context) {
     var btnLabel = 'Terminer';
@@ -42,9 +45,14 @@ class SuccessPage extends StatelessWidget {
               'Opération réussie.',
               style: TextStyle(fontSize: 20, color: Colors.blue[900]),
             ),
-            Text(
-              content,
-              style: TextStyle(fontSize: 15),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                vertical: 15
+              ),
+              child: Text(
+                content,
+                style: TextStyle(fontSize: 15),
+              ),
             ),
             RaisedButton(
               color: Colors.indigo[700],
@@ -59,7 +67,12 @@ class SuccessPage extends StatelessWidget {
               ),
               //padding: EdgeInsets.all(hauteur / 43),
               onPressed: () {
-                Navigator.pop(context);
+                if(reload){
+                  Navigator.pop(context);
+                }
+                else{
+                  Navigator.pop(context);
+                }
               },
             )
             /*Padding(

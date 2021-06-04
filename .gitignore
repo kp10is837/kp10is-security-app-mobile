@@ -6,8 +6,8 @@
 .DS_Store
 .atom/
 .buildlog/
-.history 
-.svn/ 
+.history
+.svn/
 
 # IntelliJ related
 *.iml

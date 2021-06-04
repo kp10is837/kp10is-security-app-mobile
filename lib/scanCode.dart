@@ -78,7 +78,7 @@ class _ScanCodeState extends State<ScanCode> {
       'longitude': '${_myPosition.longitude.toString()}',
       'position_exacte':''
     });
-    print('responseQuery.body ${responseQuery.body}');
+    //print('responseQuery.body ${responseQuery.body}');
     var jsonResp = json.decode(responseQuery.body);
     if(responseQuery.statusCode==200) {
       setState(() {
