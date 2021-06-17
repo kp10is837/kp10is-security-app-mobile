@@ -80,14 +80,14 @@ class _AgendaState extends State<Agenda> {
                     if (details.targetElement == CalendarElement.appointment) {
                       print("pressed");
                     }
-                    DateTime date = details.date;
+                    DateTime? date = details.date;
                     print(date);
                     dynamic appointments = details.appointments;
                     print(appointments[0].eventName);
                     CalendarElement view = details.targetElement;
                     print(view);
                     Navigator.push(context, MaterialPageRoute(builder: (context) => AgendaDetail(
-                      date: '${details.date.year}-${details.date.month}-${details.date.day}',
+                      date: '${details.date?.year}-${details.date?.month}-${details.date?.day}',
                     )),);
                   },
                   minDate: DateTime.now(),

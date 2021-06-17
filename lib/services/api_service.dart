@@ -10,8 +10,8 @@ class ApiService{
   static final imagesHost = 'http://laravel.mamgabon.com/public/uploads/';*/
 
   //static final apiHost = 'http://192.168.42.102/negomer/negomer_sarl/public/api/';
-  static final apiHost = 'https://testapp.negomer-groupe.com/api/';
-  //static final apiHost = 'https://securite.negomer-groupe.com/api/';
+  //static final apiHost = 'https://testapp.negomer-groupe.com/api/';
+  static final apiHost = 'https://securite.negomer-groupe.com/api/';
   //static final apiHost = 'http://192.168.1.147/negomer/negomer_sarl/public/api/';
   static final imagesHost = 'http://192.168.1.147/biziye/public/uploads/';
 

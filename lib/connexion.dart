@@ -41,7 +41,7 @@ class _ConnexionState extends State<Connexion> {
     double largeur = MediaQuery.of(context).size.width;
     double hauteur = MediaQuery.of(context).size.height;
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      //resizeToAvoidBottomInset: false,
       body: Container(
           constraints: BoxConstraints.expand(),
           //width: double.infinity,

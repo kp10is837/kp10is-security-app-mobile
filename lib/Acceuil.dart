@@ -18,86 +18,95 @@ class _AcceuilState extends State<Acceuil> {
     double largeur = MediaQuery.of(context).size.width;
     double hauteur = MediaQuery.of(context).size.height;
     return Scaffold(
-      body: Container(
-        child: Container(
-            color: Colors.white,
-            height: hauteur,
-            padding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
-            child: Center(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: <Widget>[
-                  SizedBox(
-                    height: hauteur / 8,
-                  ),
-                  Center(
-                      child: Text(
-                    'Bienvenue sur',
-                    style: GoogleFonts.lato(
-                      fontSize: 24,
-                      color: Colors.indigo[600],
-                      fontWeight: FontWeight.w400,
-                    ),
-                  )),
-                  Center(
-                      child: Text(
-                    'NEGOMER',
-                    style: GoogleFonts.lato(
-                      fontSize: largeur / 10,
-                      color: Colors.indigo[600],
-                      fontWeight: FontWeight.w900,
-                    ),
-                  )),
-                  SizedBox(height: hauteur / 15),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: <Widget>[
-                      Padding(
-                        padding: EdgeInsets.symmetric(
-                            vertical: 0, horizontal: largeur / 10),
-                        child: Container(
-                          child: Image.asset("assets/acceuilImage.png",
-                              width: largeur / 2,
-                              height: hauteur / 3,
-                              fit: BoxFit.cover),
-                        ),
-                      ),
-                      SizedBox(
-                        height: hauteur / 20,
-                      ),
-                      Center(
+      body: SingleChildScrollView(
+        child: SizedBox(
+          height: hauteur-20,
+          child: Container(
+              color: Colors.white,
+              height: hauteur,
+              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+              child: Center(
+                child: ListView(
+                  //crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    SizedBox(height: hauteur / 8),
+                    Center(
                         child: Text(
-                          "NEGOMER SECURITE,\n Une agence modèle et réussie pour la sécurité des biens et personnes.",
+                          'Bienvenue sur',
                           style: GoogleFonts.lato(
-                              fontStyle: FontStyle.normal,
-                              color: Colors.blueGrey,
-                              fontSize: 15,
-                              fontWeight: FontWeight.w400),
-                          textAlign: TextAlign.center,
+                            fontSize: 24,
+                            color: Colors.indigo[600],
+                            fontWeight: FontWeight.w400,
+                          ),
+                        )),
+                    Center(
+                        child: Text(
+                          'NEGOMER',
+                          style: GoogleFonts.lato(
+                            fontSize: largeur / 10,
+                            color: Colors.indigo[600],
+                            fontWeight: FontWeight.w900,
+                          ),
+                        )),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              vertical: 0, horizontal: largeur / 10),
+                          child: Container(
+                            child: Image.asset("assets/acceuilImage.png",
+                                width: largeur / 2,
+                                height: hauteur / 3,
+                                fit: BoxFit.cover),
+                          ),
                         ),
+                        SizedBox(
+                          height: hauteur / 20,
+                        ),
+                        Center(
+                          child: Text(
+                            "NEGOMER SECURITE,\n Une agence modèle et réussie pour la sécurité des biens et personnes.",
+                            style: GoogleFonts.lato(
+                                fontStyle: FontStyle.normal,
+                                color: Colors.blueGrey,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w400),
+                            textAlign: TextAlign.center,
+                          ),
+                        )
+                      ],
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                        bottom: 130
                       )
-                    ],
-                  ),
-                  SizedBox(
-                    height: hauteur / 20,
-                  ),
-                  RaisedButton(
-                    color: Colors.indigo[700],
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
                     ),
-                    child: Text(
-                      "CONNEXION",
-                      style: GoogleFonts.lato(
-                        color: Colors.white,
-                      ),
-                    ),
-                    padding: EdgeInsets.all(hauteur / 43),
-                    onPressed: connexion,
-                  ),
-                ],
-              ),
-            )),
+
+                  ],
+                ),
+              ))
+        ),
+      ),
+      bottomNavigationBar: Container(
+        padding: EdgeInsets.symmetric(
+          horizontal: 10,
+          vertical: 5
+        ),
+        child: RaisedButton(
+          color: Colors.indigo[700],
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
+          child: Text(
+            "CONNEXION",
+            style: GoogleFonts.lato(
+              color: Colors.white,
+            ),
+          ),
+          padding: EdgeInsets.all(hauteur / 43),
+          onPressed: connexion,
+        ),
       ),
     );
   }
